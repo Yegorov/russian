@@ -7,6 +7,13 @@ describe I18n, "Russian Date/Time localization" do
     Russian.init_i18n
     @date = Date.parse("1985-12-01")
     @time = Time.local(1985, 12, 01, 16, 05)
+    I18n.default_locale = :ru
+  end
+
+  describe "with I18n.t" do
+    it "date.abbr_day_names" do
+      I18n.t('date.abbr_day_names').should == ["вс", "пн", "вт", "ср", "чт", "пт", "сб"]
+    end
   end
 
   describe "with date formats" do
